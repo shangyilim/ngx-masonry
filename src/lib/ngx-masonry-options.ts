@@ -12,4 +12,5 @@ export interface NgxMasonryOptions {
   resize?: boolean;
   initLayout?: boolean;
   horizontalOrder?: boolean;
+  prepend?: boolean;
 }

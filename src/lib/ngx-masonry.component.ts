@@ -1,4 +1,4 @@
-import {
+ import {
   Component,
   OnInit,
   OnChanges,
@@ -118,7 +118,12 @@ export class NgxMasonryComponent implements OnInit, OnChanges, OnDestroy {
         this._element.nativeElement.appendChild(element);
 
         // Tell Masonry that a child element has been added
-        this._msnry.appended(element);
+        if(this.options.prepend){
+          this._msnry.prepended(element);
+        }
+        else{
+          this._msnry.appended(element);
+        }
 
         // layout if first item
         if (isFirstItem) {
@@ -129,7 +134,12 @@ export class NgxMasonryComponent implements OnInit, OnChanges, OnDestroy {
       this._element.nativeElement.removeChild(element);
     } else {
       // Tell Masonry that a child element has been added
-      this._msnry.appended(element);
+      if(this.options.prepend){
+        this._msnry.prepended(element);
+      }
+      else{
+        this._msnry.appended(element);
+      }
 
       // layout if first item
       if (isFirstItem) {
